@@ -1,0 +1,134 @@
+:root {
+    --bg-color: #ffffff;
+    --card-bg: #f6f8fa;
+    --text-color: #24292f;
+    --accent-color: #0969da;
+    --secondary-color: #1a7f37;
+    --boundary-color: #cf222e;
+    --path-upper: #889E81;
+    --path-lower: #BC6C51;
+    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 320px;
+    background-color: var(--card-bg);
+    padding: 2rem;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow-y: auto;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    position: relative;
+}
+
+h1 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent-color);
+    margin-top: 0.6rem;
+}
+
+.value-display {
+    font-family: 'Inter', system-ui;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    float: right;
+}
+
+.param-note {
+    font-size: 0.85rem;
+    font-weight: 500;
+    opacity: 0.7;
+    margin-top: -0.25rem;
+    color: var(--text-color);
+}
+
+canvas {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    width: 100%;
+    height: calc(100% - 220px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+#distribution-canvas {
+    height: 200px;
+    background: transparent;
+    border: none;
+}
+
+.btn {
+    background: var(--accent-color);
+    border: none;
+    color: white;
+    padding: 0.85rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.1s, box-shadow 0.2s;
+    box-shadow: 0 2px 4px rgba(9, 105, 218, 0.2);
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(9, 105, 218, 0.3);
+}
+
+.legend {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+    opacity: 0.8;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
