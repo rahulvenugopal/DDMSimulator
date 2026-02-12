@@ -45,14 +45,20 @@ Object.values(inputs).forEach(input => {
 });
 
 function resize() {
-    pathCanvas.width = pathCanvas.clientWidth;
-    pathCanvas.height = pathCanvas.clientHeight;
-    distCanvas.width = distCanvas.clientWidth;
-    distCanvas.height = distCanvas.clientHeight;
+    // Desktop vs Mobile height handling is now mostly in CSS
+    // but we need to set the internal resolution to match display size
+    pathCanvas.width = pathCanvas.offsetWidth;
+    pathCanvas.height = pathCanvas.offsetHeight;
+    distCanvas.width = distCanvas.offsetWidth;
+    distCanvas.height = distCanvas.offsetHeight;
     draw();
 }
 
-window.addEventListener('resize', resize);
+let resizeTimeout;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(resize, 100);
+});
 resize();
 
 function simulateTrial() {
